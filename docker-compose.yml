@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  postgres:
+    build: .
+    container_name: postgres_pgcron_oraclefdw
+    environment:
+      POSTGRES_PASSWORD: suasenha
+    ports:
+      - "5433:5432" # acessa pelo host na 5433
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:
